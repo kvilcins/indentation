@@ -1,0 +1,17 @@
+.summary {
+  width: 1140px;
+  background-color: #F1F1F1;
+  border-radius: 10px;
+  padding: 25px 45px;
+}
+
+.summary__paragraph {
+  margin: 0;
+}
+
+.summary__paragraph_header {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 53px;
+  margin: 0 0 20px 0;
+}

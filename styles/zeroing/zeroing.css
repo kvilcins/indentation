@@ -1,0 +1,12 @@
+.zeroing {
+  padding: 25px 0 50px 0;
+}
+
+.zeroing__img {
+  margin: 0 auto 30px;
+  display: block;
+}
+
+.zeroing__img:last-child {
+  margin: 0 auto;
+}

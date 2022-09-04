@@ -1,0 +1,12 @@
+.float-right {
+  display: flow-root;
+}
+
+.float-right__img {
+  float: right;
+  padding: 0 0 0 40px;
+}
+
+.float-right__paragraph:last-child {
+  margin: 0;
+}

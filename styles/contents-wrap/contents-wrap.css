@@ -1,0 +1,22 @@
+.contents-wrap {
+  width: 1140px;
+  background-color: #F1F1F1;
+  border-radius: 10px;
+  padding: 25px 45px;
+}
+
+.contents-wrap__paragraph {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 53px;
+  margin: 0 0 20px 0;
+}
+
+.contents-wrap__list {
+  padding-inline-start: 25px;
+}
+
+.contents-wrap__item:last-child {
+  margin: 0;
+}

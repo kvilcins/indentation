@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Article</title>
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/style.css">
+<!--  <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>-->
+<!--  <link rel="preload" href="fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin>-->
+<!--  <link rel="preload" href="fonts/Roboto-Black.woff2" as="font" type="font/woff2" crossorigin>-->
+</head>
+<body>
+  <main>
+    <article class="article">
+
+      <div class="container article__wrap intro">
+        <h1 class="article__title">Отступы в вёрстке: margin и padding</h1>
+        <p class="intro__paragraph">В этой статье я рассмотрю самые популярные "стандартные" решения для сохранения смысла и хорошей читаемости вашего кода. Если точнее — речь пойдет об основных правилах организации отступов. Они сильно влияют на общую функциональность кода и, если всё сделано верно, позволяют легко вносить изменения в любую его часть. При этом другие части кода продолжат нормально работать.</p>
+        <p class="intro__paragraph">Как это часто бывает, знание базовых принципов поможет проявить гибкость и выйти за их пределы. Эти знания особенно важны для начинающих, но также будут полезным напоминанием и для более опытных верстальщиков. Итак, поговорим о фундаментальных основах работы с отступами в вёрстке.</p>
+      </div>
+
+      <div class="article__wrap contents-wrap">
+        <p class="contents-wrap__paragraph">Содержание:</p>
+        <ol class="contents-wrap__list">
+          <li class="contents-wrap__item contents-li">
+            <a href="#next-element" class="contents-li__link">Отступ задается от предыдущего элемента к следующему</a>
+          </li>
+          <li class="contents-wrap__item contents-li">
+            <a href="#last-element" class="contents-li__link">Отступ задается последнему возможному элементу в DOM-дереве</a>
+          </li>
+          <li class="contents-wrap__item contents-li">
+            <a href="#zeroing" class="contents-li__link">Для последнего элемента группы отступ обнуляется</a>
+          </li>
+        </ol>
+      </div>
+
+      <section aria-label="about spacing" class="article__section about-spacing">
+        <div class="container">
+          <h2 id="next-element" class="about-spacing__h2">Отступ задается от предыдущего элемента к следующему: от первого ко второму, сверху вниз, слева направо.</h2>
+
+          <div class="about-spacing__float-left float-left">
+            <img src="styles/float-left/img/image1.jpg" alt="Margin слева и снизу блока" class="float-left__img">
+            <p class="float-left__paragraph"><strong>ВАЖНО:</strong> <i>margin</i> всегда задают от предыдущего элемента к следующему.</p>
+            <p class="float-left__paragraph">Свойство <i>margin</i> необходимо только для того, чтобы отодвинуть своего соседа справа или снизу, поэтому используется margin-right и margin-bottom.</p>
+            <p class="float-left__paragraph">(!) Свойства <i>margin-left</i> и <i>margin-top</i> используются крайне редко.</p>
+            <p class="float-left__paragraph">Для <i>padding</i> верно обратное. Исключением является его применения в декоративных целях, например, для увеличения области ссылки.</p>
+          </div>
+
+          <div class="about-spacing__float-right float-right">
+            <img src="styles/float-right/img/image2.jpg" alt="Padding сверху section" class="float-right__img">
+            <p class="float-right__paragraph">Отступ внутри блока сверху или слева реализуется через <i>padding-top</i> и <i>padding-left</i> родителя.</p>
+            <p class="float-right__paragraph">Отступы, как правило, делают в направлении от предыдущего элемента к следующему. Так элемент не будет толкать сам себя.</p>
+            <p class="float-right__paragraph">Изначально элемент статичен, а его положение может меняться только под воздействием свойств других блоков или свойств родителя.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="about padding" class="article__section last-element">
+        <div class="container">
+          <h2 id="last-element" class="last-element__h2">Отступ задается последнему возможному элементу в DOM-дереве</h2>
+          <p class="last-element__paragraph">Вообще, margin задают исключительно между соседними элементами DOM-дерева. Для примера, посмотрите на этот список:</p>
+          <img src="styles/last-element/img/image3.jpg" alt="Список html" class="last-element__img">
+          <img src="styles/last-element/img/image4.jpg" alt="Как список выглядит на странице" class="last-element__img">
+          <p class="last-element__paragraph">Отступ делают за счёт соседних элементов, а не дочерних:</p>
+          <figure class="last-element__figure figure-wrap">
+            <img src="styles/figure-wrap/img/image5.jpg" alt="Как у списка выглядят отступы margin в коде" class="figure-wrap__img">
+            <figcaption class="figure-wrap__figcaption"><strong>ВАЖНО:</strong> здесь .list-item — последний возможный элемент в котором мы задаём отступ, чтобы разделить списки.</figcaption>
+          </figure>
+
+          <p class="last-element__paragraph">Казалось бы, можно задать отступ параграфу <i>&#60;p&#62;</i>, либо обёртке <i>&#60;article&#62;</i> для достижения той же цели. Внешне останется все точно также, но так делать не рекомендуется.</p>
+          <p class="last-element__paragraph">Предыдущий пример был достаточно простым, но бывает вложенность значительно больше.</p>
+          <img src="styles/last-element/img/image6.jpg" alt="Вложенность с заголовком" class="last-element__img">
+          <p class="last-element__paragraph">В случае с заголовком, если ему необходим отступ сверху, последним элементом будет <i>section</i>. Именно для него задается <i>padding-top</i>, а не <i>div</i> с классом <i>container</i>. Свойства margin, которые стоят по умолчанию необходимо обнулить.</p>
+          <img src="styles/last-element/img/image7.jpg" alt="Котик" class="last-element__img">
+          <p class="last-element__paragraph">Это необходимо для более простого поиска отступов в будущем — для вас или того, кто будет верстать после вас. Кроме того, возможны серьёзные проблемы при динамическом дублировании или выводе вёрстки с нестандартной структурой отступов.</p>
+        </div>
+      </section>
+
+      <section aria-label="zeroing the last element" class="article__section zeroing">
+        <div class="container">
+          <h2 id="zeroing" class="zeroing__h2">Для последнего элемента группы отступ всегда обнуляется</h2>
+          <p class="zeroing__paragraph">Для наглядности возьмём наш предыдущий пример с рецептами</p>
+          <p class="zeroing__paragraph">Между рецептами расстояние одинаковое. Можно заметить, что и до следующего блока расстояние такое же.</p>
+          <img src="styles/zeroing/img/image8.jpg" alt="Пример с рецептами" class="zeroing__img">
+          <p class="zeroing__paragraph">В соответствии со вторым принципом: последний <i>margin</i> обнуляется, а нижний отступ задаётся через <i>padding</i> для <i>section</i>. Я чаще всего задаю <i>padding</i> для секции с обоих сторон, если расстояние между секциями 100px задаю секциям padding-top:50px и padding-bottom:50px.</p>
+          <img src="styles/zeroing/img/image9.jpg" alt="Как выглядят отступы в коде" class="zeroing__img">
+          <img src="styles/zeroing/img/image10.jpg" alt="Как выглядит верстка рецептов" class="zeroing__img">
+          <p class="zeroing__paragraph">Для большего понимания рассмотрим другой пример, который часто встречается на практике:</p>
+          <img src="styles/zeroing/img/image11.jpg" alt="Пример с пунктами меню в шапке" class="zeroing__img">
+          <img src="styles/zeroing/img/image12.jpg" alt="Верстка меню - как выглядит код" class="zeroing__img">
+          <p class="zeroing__paragraph">Здесь нас интересует отступ между пунктами меню и списком с кнопкой поиска. Отступы между пунктами меню задаются так:</p>
+          <img src="styles/zeroing/img/image13.jpg" alt="Отступы между пунктами меню" class="zeroing__img">
+          <p class="zeroing__paragraph">Советую использовать псевдоклассы :last-child чаще других, например так:</p>
+          <img src="styles/zeroing/img/image14.jpg" alt="Использование псведоклассов - пример" class="zeroing__img">
+        </div>
+      </section>
+
+      <div class="article__contents summary">
+        <p class="summary__paragraph summary__paragraph_header">Подытожим:</p>
+
+        <ul class="summary__list summary-list">
+          <li class="summary-list__item">отступы задаём от предыдущего элемента к следующему</li>
+          <li class="summary-list__item">используем только margin-right и margin-bottom</li>
+          <li class="summary-list__item">внешние отступы задаются только между соседями</li>
+          <li class="summary-list__item">внутренний отступ задаём самому верхнему элементу в дом дереве</li>
+          <li class="summary-list__item">последнему элементу группы отступ всегда обнуляем</li>
+        </ul>
+
+        <p class="summary__paragraph">Конечно бывают исключения. Ведь макеты бывают различной сложности. Иногда базовые принципы приходится нарушать в угоду дизайнерского решения или простоты вёрстки. Но для этого эти принципы необходимо хорошо знать.</p>
+      </div>
+
+    </article>
+  </main>
+</body>
+</html>
